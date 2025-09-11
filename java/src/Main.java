@@ -11,5 +11,8 @@ public class Main {
         System.out.println(Werner.getMatricula());
         System.out.println(Werner.getEmail());
         System.out.println(Werner.getSenha());
+
+        Funcionario funcionario = new Funcionario();
+        funcionario.
     }
 }
