@@ -1,5 +1,3 @@
-//SUPER CLASSE
-//TEM MUITAS PROPRIEDADES, É UMA CLASSE RICA EM PROPRIEDADES!
 public class Pessoa {
     private String nome;
     private int idade;
