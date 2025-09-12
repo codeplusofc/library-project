@@ -1,5 +1,3 @@
-//SUBCLASSE
-//É UMA CLASSE QUE HERDA DAS SUPER CLASSES
 public class Usuario extends Pessoa {
     private int matricula;
     private String email;
