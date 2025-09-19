@@ -13,7 +13,7 @@ public class Livro {
         this.autor = autor;
         this.isbn = isbn;
         this.paginas = paginas;
-        this.anoPublicacao = (int) anoPublicacao;
+        this.anoPublicacao = anoPublicacao;
         this.editora = editora;
     }
 
@@ -57,7 +57,7 @@ public class Livro {
         this.paginas = paginas;
     }
 
-    public long getAnoPublicacao() {
+    public int getAnoPublicacao() {
         return anoPublicacao;
     }
 
