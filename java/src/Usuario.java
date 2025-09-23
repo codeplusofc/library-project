@@ -1,9 +1,8 @@
 public class Usuario extends Pessoa {
     private int matricula;
-    private String email;
-    private String senha;
 
-    public void setMatricula(int matricula) {
+    public Usuario(String nome, int idade, String email, String senha, int matricula) {
+        super(nome, idade, email, senha);
         this.matricula = matricula;
     }
 
@@ -11,19 +10,7 @@ public class Usuario extends Pessoa {
         return matricula;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getSenha() {
-        return senha;
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
 }
