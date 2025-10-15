@@ -2,6 +2,7 @@ package com.library.api.controller;
 
 import com.library.api.model.BookEntity;
 import com.library.api.repository.BookRepository;
+import com.library.api.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,8 @@ public class BookController {
 
     @Autowired
     public BookRepository bookRepository;
+    @Autowired
+    public BookService bookService;
 
     @PostMapping
     public BookEntity createBook(@RequestBody BookEntity bookEntity) {
@@ -35,23 +38,14 @@ public class BookController {
 
         //TODO: CRIAR UMA CLASSE DE BOOK SERVICE E COLOCAR ESSA LÓGICA DENTRO DELA
         //NÃO ESQUECER DE CHAMAR A CLASSE AQUI NA CONTROLLER PRA VOCÊ CONSEGUIR UTILIZAR ELA
-        Optional<BookEntity> livroDoBancoDeDados = bookRepository.findById(id);
 
-        livroDoBancoDeDados.get().setAuthor(bookEntity.getAuthor());
-        livroDoBancoDeDados.get().setGenre(bookEntity.getGenre());
-        livroDoBancoDeDados.get().setPages(bookEntity.getPages());
-        livroDoBancoDeDados.get().setTitle(bookEntity.getTitle());
-
-        return bookRepository.save(livroDoBancoDeDados.get());
+        return bookService.updateBook(bookEntity, id);
     }
 
     @GetMapping("/{id}")
     public Optional<BookEntity> findBookById(@PathVariable Long id) {
         //TODO: EXTRA -> APÓS FINALIZAR A MIGRAÇÃO DA REGRA DE NEGÓCIO DO PUT, FAZER PARA O FIND BOOK BY ID TBM
-        Optional<BookEntity> book = bookRepository.findById(id);
-        if (book.isEmpty()) {
-            throw new RuntimeException("Book not found");
-        }
-        return book;
+
+        return bookRepository.findById(id);
     }
 }
