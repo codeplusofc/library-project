@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-//ESSA CAMADA É UTILIZADA PARA CRIAR OBJETOS
 @Entity
 public class UserEntity {
     @Id
