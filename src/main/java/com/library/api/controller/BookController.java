@@ -20,16 +20,19 @@ public class BookController {
 
     @PostMapping
     public BookEntity createBook(@RequestBody BookEntity bookEntity) {
+        //TODO: MOVER ESSA LÓGICA PARA O SERVIÇO
         return bookRepository.save(bookEntity);
     }
 
     @GetMapping
     public List<BookEntity> getAllBooks() {
+        //TODO: MOVER ESSA LÓGICA PARA O SERVIÇO
         return bookRepository.findAll();
     }
 
     @DeleteMapping("/{id}")
     public void deleteBookById(@PathVariable Long id) {
+        //TODO: MOVER ESSA LÓGICA PARA O SERVIÇO
         bookRepository.deleteById(id);
     }
 
@@ -40,6 +43,8 @@ public class BookController {
 
     @GetMapping("/{id}")
     public Optional<BookEntity> findBookById(@PathVariable Long id) {
-        return bookRepository.findById(id);
+        return bookService.findBookById(id);
     }
 }
+
+//TODO: EXTRA: CRIAR CAMADA DE DTO PARA FUNCIONALIDADE DE LIVRO
