@@ -33,10 +33,7 @@ public class BookService {
     }
 
     public Optional<BookEntity> findBookById(@PathVariable Long id) {
-        //TODO: EXTRA -> APÓS FINALIZAR A MIGRAÇÃO DA REGRA DE NEGÓCIO DO PUT, FAZER PARA O FIND BOOK BY ID TBM
-        Optional<BookEntity> book = bookRepository.findById(id);
-
-        return book;
+        return bookRepository.findById(id);
     }
 
 }

@@ -35,17 +35,11 @@ public class BookController {
 
     @PutMapping("/{id}")
     public BookEntity updateBook(@PathVariable Long id, @RequestBody BookEntity bookEntity) {
-
-        //TODO: CRIAR UMA CLASSE DE BOOK SERVICE E COLOCAR ESSA LÓGICA DENTRO DELA
-        //NÃO ESQUECER DE CHAMAR A CLASSE AQUI NA CONTROLLER PRA VOCÊ CONSEGUIR UTILIZAR ELA
-
         return bookService.updateBook(bookEntity, id);
     }
 
     @GetMapping("/{id}")
     public Optional<BookEntity> findBookById(@PathVariable Long id) {
-        //TODO: EXTRA -> APÓS FINALIZAR A MIGRAÇÃO DA REGRA DE NEGÓCIO DO PUT, FAZER PARA O FIND BOOK BY ID TBM
-
         return bookRepository.findById(id);
     }
 }
