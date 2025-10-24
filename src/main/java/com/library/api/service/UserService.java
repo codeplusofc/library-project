@@ -1,5 +1,7 @@
 package com.library.api.service;
 
+import com.library.api.dto.UserRequest;
+import com.library.api.dto.UserResponse;
 import com.library.api.model.UserEntity;
 import com.library.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +27,15 @@ public class UserService {
         userDoBanco.get().setPassword(userEntity.getPassword());
 
         return userRepository.save(userDoBanco.get());
+    }
+
+    public UserResponse createUser(UserRequest userRequest){
+        UserEntity userEntity = new UserEntity(userRequest.getName(),
+                userRequest.getEmail(),
+                userRequest.getPassword());
+
+        UserEntity saved = userRepository.save(userEntity);
+
+        return new UserResponse(saved.getId(),saved.getEmail(), saved.getName());
     }
 }

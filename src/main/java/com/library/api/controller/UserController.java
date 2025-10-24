@@ -1,5 +1,7 @@
 package com.library.api.controller;
 
+import com.library.api.dto.UserRequest;
+import com.library.api.dto.UserResponse;
 import com.library.api.model.UserEntity;
 import com.library.api.repository.UserRepository;
 import com.library.api.service.UserService;
@@ -19,8 +21,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public UserEntity createUser(@RequestBody UserEntity userEntity){
-        return userRepository.save(userEntity);
+    public UserResponse createUser(@RequestBody UserRequest userRequest){
+        return userService.createUser(userRequest);
     }
 
     @GetMapping
